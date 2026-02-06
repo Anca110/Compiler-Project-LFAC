@@ -1,7 +1,0 @@
-{
-  "files.associations": {
-    "*.h": "cpp",
-    "limbaj.tab.c": "cpp",
-    "lex.yy.c": "cpp"
-  }
-}

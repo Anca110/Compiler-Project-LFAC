@@ -1,0 +1,32 @@
+===== Symbol Table: global =====
+Parent: none
+- Car : class
+- Engine : class
+- add : function, type=unknown, params=(int x, int y)
+- hello : function, type=unknown
+- a : variable, type=int, value=30
+- b : variable, type=float, value=3.500000
+- ok : variable, type=bool, value=true
+- s : variable, type=string, value="ana"
+- myCar : variable, type=Car
+- myEngine : variable, type=Engine
+
+===== Symbol Table: class Car =====
+Parent: global
+- speed : variable, type=int
+- fuel : variable, type=float
+
+===== Symbol Table: class Engine =====
+Parent: global
+- hp : variable, type=int
+
+===== Symbol Table: function add =====
+Parent: global
+- x : variable, type=int
+- y : variable, type=int
+- r : variable, type=int
+
+===== Symbol Table: function hello =====
+Parent: global
+(no symbols)
+

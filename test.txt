@@ -1,0 +1,104 @@
+city Car 
+[[
+  infiniti speed;
+  ferrari fuel;
+]]
+
+city Engine 
+[[
+  infiniti hp;
+]]
+
+mini_engine add(infiniti x, infiniti y)
+[[
+  infiniti r;
+  infiniti r;/* eroare dublu declarat */
+
+  r <=> x <+> y;
+  turnback r;
+]]
+
+mini_engine hello() 
+[[
+  sign("hi");
+]]
+
+infiniti a;
+ferrari b;
+signal ok;
+suzuki s;
+Car myCar;
+Engine myEngine;
+
+engine 
+[[
+  a <=> 10;
+  b <=> 3.5;
+  ok <=> green;
+  s <=> "ana";
+ 
+  sign(a);
+  sign(b);
+  sign(ok);
+  sign(s);
+  a <=> a <+> 2;
+  sign(a);
+  a <=> (a <+> 3) <*> 2;
+  sign(a);
+  sign(a </> 3);
+  sign(a </> 0);
+  sign(b <*> 2.0);
+  sign("cerinta4");
+  sign(green);
+  sign(red);
+
+  a <=> 3.5;/* eroare int si float */
+  a <=> a <+> 2.5; /* eroare int + float */
+
+  hello();
+  add(a, 2);
+  add(3.5, 2); /* eroare float in loc de int */
+  add(a); /* eroare add(x, y) */
+
+  myCar.speed <=> 100;
+  myCar.fuel <=> 20.5;
+  myEngine.hp <=> 300;
+
+  myCar.speed;
+
+  myCar.noField; /* eroare field inexistent */
+
+  myCar.setSpeed(a); /* eroare metoda inexistenta */
+
+  sign(nuExista); /* eroare variabila nedeclarata in print */
+
+  junction (a under_limit 5) 
+  [[
+    sign("mic");
+  ]] 
+  detour 
+  [[
+    sign("mare");
+  ]]
+
+  round (a under_limit 12) 
+  [[
+    a <=> a <+> 1;
+    sign(a);
+    junction (a same_car 11) 
+    [[
+      moveon;
+    ]]
+    junction (a same_car 12) 
+    [[
+      stop;
+    ]]
+  ]]
+
+  root (a <=> 0; a under_limit 3; a <=> a <+> 1) 
+  [[
+    sign("for");
+  ]]
+
+  turnback 0;
+]]
